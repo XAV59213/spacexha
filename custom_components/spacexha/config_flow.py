@@ -16,6 +16,6 @@ async def _async_has_devices(hass) -> bool:
 
 config_entry_flow.register_discovery_flow(
     DOMAIN,
-    "Prochain lancement de SpaceX",
+    "SpaceX Launches and Starman",
     _async_has_devices,
 )

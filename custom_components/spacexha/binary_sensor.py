@@ -26,7 +26,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     sensors.append(
         SpaceXBinarySensor(
             coordinator,
-            "Prochain lancement confirmé",
+            "Next Launch Confirmed",
             "spacex_next_launch_confirmed",
             "mdi:check-circle",
             "spacexlaunch",
@@ -36,7 +36,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     sensors.append(
         SpaceXBinarySensor(
             coordinator,
-            "Lancement dans les 24 heures",
+            "Launch within 24 Hours",
             "spacex_launch_24_hour_warning",
             "mdi:rocket",
             "spacexlaunch",
@@ -46,7 +46,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
     sensors.append(
         SpaceXBinarySensor(
             coordinator,
-            "Lancement dans les 20 minutes",
+            "Launch within 20 Minutes",
             "spacex_launch_20_minute_warning",
             "mdi:rocket-launch",
             "spacexlaunch",

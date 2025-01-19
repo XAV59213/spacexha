@@ -3,7 +3,7 @@ import asyncio
 from datetime import timedelta
 import logging
 
-from spacexpypi import spacexha
+from spacexpypi import SpaceX
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
@@ -29,23 +29,23 @@ async def async_setup(hass: HomeAssistant, config: dict):
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up SpaceX from a config entry."""
     polling_interval = 120
-    api = spacexha()
+    api = SpaceX()
 
     try:
         await api.get_next_launch()
     except ConnectionError as error:
-        _LOGGER.debug("spacexha API Error: %s", error)
+        _LOGGER.debug("SpaceX API Error: %s", error)
         return False
         raise ConfigEntryNotReady from error
     except ValueError as error:
-        _LOGGER.debug("spacexha API Error: %s", error)
+        _LOGGER.debug("SpaceX API Error: %s", error)
         return False
         raise ConfigEntryNotReady from error
 
     coordinator = SpaceXUpdateCoordinator(
         hass,
         api=api,
-        name="spacexha",
+        name="SpaceX",
         polling_interval=polling_interval,
     )
 
@@ -80,7 +80,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
 
     return unload_ok
 
-class spacexhaUpdateCoordinator(DataUpdateCoordinator):
+class SpaceXUpdateCoordinator(DataUpdateCoordinator):
     """Class to manage fetching update data from the SpaceX endpoint."""
 
     def __init__(
@@ -114,10 +114,10 @@ class spacexhaUpdateCoordinator(DataUpdateCoordinator):
                 "latest_launch": spacex_latest_launch,
             }
         except ConnectionError as error:
-            _LOGGER.info("spacexha API: %s", error)
+            _LOGGER.info("SpaceX API: %s", error)
             raise UpdateFailed from error
         except ValueError as error:
-            _LOGGER.info("spacexha API: %s", error)
+            _LOGGER.info("SpaceX API: %s", error)
             raise UpdateFailed from error
 
         
