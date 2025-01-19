@@ -6,9 +6,9 @@
         },
         "step": {
             "confirm": {
-                "description": "Are you sure you want to install the SpaceX integration?"
+                "description": "Êtes-vous sûr de vouloir installer l'intégration SpaceX ?"
             }
         }
     },
-    "title": "SpaceX Launches and Starman"
+    "title": "Prochain lancement de SpaceX"
 }
