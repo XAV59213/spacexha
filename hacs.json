@@ -1,7 +1,7 @@
 {
-    "name": "Prochain lancement de SpaceX et Starman",
-    "country": "FR",
+    "name": "SpaceX Next Launch and Starman",
+    "country": "CA",
     "domains": ["binary_sensor", "sensor"],
-    "homeassistant": "2022.6.0",
+    "homeassistant": "0.115.0",
     "iot_class": ["Cloud Polling"]
 }
