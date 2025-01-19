@@ -1,6 +1,6 @@
 """Constants for the SpaceX integration."""
 
-DOMAIN = "spacex"
+DOMAIN = "spacexX"
 COORDINATOR = "coordinator"
 SPACEX_API = "spacex_api"
 ATTR_IDENTIFIERS = "identifiers"
