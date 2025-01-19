@@ -5,7 +5,7 @@
   "documentation": "https://github.com/XAV59213/spacexha",
   "issue_tracker": "https://github.com/XAV59213/spacexha/issues",
   "requirements": [
-    "spacexpypi=="4.0"
+    "spacexpypi==4.0.0"
   ],
   "ssdp": [],
   "zeroconf": [],
