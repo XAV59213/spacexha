@@ -1,6 +1,6 @@
 {
   "domain": "spacexha",
-  "name": "SpaceX Launches and Starman",
+  "name": "Lancements de SpaceX et Starman",
   "config_flow": true,
   "documentation": "https://github.com/XAV59213/SpaceX",
   "issue_tracker": "https://github.com/XAV59213/SpaceX/issues",
