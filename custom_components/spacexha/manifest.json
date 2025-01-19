@@ -1,5 +1,5 @@
 {
-  "domain": "spacex",
+  "domain": "SpaceX",
   "name": "SpaceX Launches and Starman",
   "config_flow": true,
   "documentation": "https://github.com/djtimca/haspacex",
