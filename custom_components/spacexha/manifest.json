@@ -12,8 +12,8 @@
   "homekit": {},
   "dependencies": [],
   "codeowners": [
-    "@djtimca"
+    "@XAV59213"
   ],
-  "version": "0.1",
+  "version": "0.2",
   "iot_class": "cloud_polling"
 }
