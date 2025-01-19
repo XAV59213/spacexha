@@ -1,5 +1,5 @@
 {
-    "name": "SpaceX Next Launch and Starman",
+    "name": "Prochain lancement de SpaceX et Starman",
     "country": "FR",
     "domains": ["binary_sensor", "sensor"],
     "homeassistant": "0.115.0",
