@@ -2,8 +2,8 @@
   "domain": "spacexha",
   "name": "Lancements de SpaceX et Starman",
   "config_flow": true,
-  "documentation": "https://github.com/XAV59213/SpaceX",
-  "issue_tracker": "https://github.com/XAV59213/SpaceX/issues",
+  "documentation": "https://github.com/XAV59213/spacexha",
+  "issue_tracker": "https://github.com/XAV59213/spacexha/issues",
   "requirements": [
     "spacexpypi==0.0.12"
   ],
