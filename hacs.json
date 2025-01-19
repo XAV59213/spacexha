@@ -2,6 +2,6 @@
     "name": "Prochain lancement de SpaceX",
     "country": "FR",
     "domains": ["binary_sensor", "sensor"],
-    "homeassistant": "2025.1.0",
+    "homeassistant": "2025.1.2",
     "iot_class": ["Cloud Polling"]
 }
