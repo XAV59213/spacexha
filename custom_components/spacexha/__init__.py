@@ -3,7 +3,7 @@ import asyncio
 from datetime import timedelta
 import logging
 
-from spacexpypi import spacexha
+from spacexpypi import Spacex
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
