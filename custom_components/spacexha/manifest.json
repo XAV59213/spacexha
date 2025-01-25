@@ -1,5 +1,5 @@
 {
-  "domain": "spacexha",
+  "domain": "spacex",
   "name": "Lancements de SpaceX et Starman",
   "config_flow": true,
   "documentation": "https://github.com/XAV59213/spacexha",
