@@ -2,16 +2,16 @@
   "domain": "spacexha",
   "name": "Lancements de SpaceX et Starman",
   "config_flow": true,
+  "codeowners": ["@djtimca", "@XAV59213"],
+  "dependencies": [],
   "documentation": "https://github.com/XAV59213/spacexha",
+  "homekit": {},
+  "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/XAV59213/spacexha/issues",
   "requirements": [
     "spacexpypi==0.0.12"
   ],
   "ssdp": [],
-  "zeroconf": [],
-  "homekit": {},
-  "dependencies": [],
-  "codeowners": ["@djtimca", "@XAV59213"],
   "version": "029",
-  "iot_class": "cloud_polling"
+  "zeroconf": []
 }
