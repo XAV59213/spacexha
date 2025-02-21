@@ -1,7 +1,5 @@
 {
     "name": "Lancements de SpaceX et Starman",
-    "country": "CA",
-    "domains": ["binary_sensor", "sensor"],
-    "homeassistant": "0.115.0",
-    "iot_class": ["Cloud Polling"]
+    "content_in_root": true,
+    "render_readme": true
 }
