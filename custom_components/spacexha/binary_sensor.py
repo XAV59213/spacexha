@@ -16,43 +16,62 @@ from .const import ATTR_IDENTIFIERS, ATTR_MANUFACTURER, ATTR_MODEL, DOMAIN, COOR
 
 _LOGGER = logging.getLogger(__name__)
 
-SENSOR_CONFIG = [
-    {
-        "name": "Next Launch Confirmed",
-        "entity_id": "spacex_next_launch_confirmed",
-        "icon": "mdi:check-circle",
-        "device_identifier": "spacexlaunch",
-    },
-    {
-        "name": "Launch within 24 Hours",
-        "entity_id": "spacex_launch_24_hour_warning",
-        "icon": "mdi:rocket",
-        "device_identifier": "spacexlaunch",
-    },
-    {
-        "name": "Launch within 20 Minutes",
-        "entity_id": "spacex_launch_20_minute_warning",
-        "icon": "mdi:rocket-launch",
-        "device_identifier": "spacexlaunch",
-    },
-]
 
 async def async_setup_entry(hass, entry, async_add_entities):
     """Set up the binary sensor platforms."""
+
     coordinator = hass.data[DOMAIN][entry.entry_id][COORDINATOR]
-    sensors = [
-        SpaceXBinarySensor(coordinator, **config) for config in SENSOR_CONFIG
-    ]
+    sensors = []
+
+    sensors.append(
+        SpaceXBinarySensor(
+            coordinator,
+            "Next Launch Confirmed",
+            "spacex_next_launch_confirmed",
+            "mdi:check-circle",
+            "spacexlaunch",
+        )
+    )
+
+    sensors.append(
+        SpaceXBinarySensor(
+            coordinator,
+            "Launch within 24 Hours",
+            "spacex_launch_24_hour_warning",
+            "mdi:rocket",
+            "spacexlaunch",
+        )
+    )
+
+    sensors.append(
+        SpaceXBinarySensor(
+            coordinator,
+            "Launch within 20 Minutes",
+            "spacex_launch_20_minute_warning",
+            "mdi:rocket-launch",
+            "spacexlaunch",
+        )
+    )
+
     async_add_entities(sensors)
 
 
 class SpaceXBinarySensor(BinarySensorEntity):
     """Defines a SpaceX Binary sensor."""
 
-    def __init__(self, coordinator, name, entity_id, icon, device_identifier):
-        """Initialize the entity."""
+    def __init__(
+        self, 
+        coordinator: SpaceXUpdateCoordinator, 
+        name: str, 
+        entity_id: str, 
+        icon: str,
+        device_identifier: str,
+        ):
+        """Initialize Entities."""
+
         self._name = name
         self._unique_id = f"spacex_{entity_id}"
+        self._state = None
         self._icon = icon
         self._kind = entity_id
         self._device_identifier = device_identifier
@@ -85,8 +104,13 @@ class SpaceXBinarySensor(BinarySensorEntity):
         launch_data = self.coordinator.data["next_launch"]
 
         if self._kind == "spacex_next_launch_confirmed":
-            return "mdi:check-circle" if not launch_data.get("tbd") else "mdi:do-not-disturb"
-        return self._icon
+            if launch_data.get("tbd") is True:
+                return "mdi:do-not-disturb"
+            else:
+                return "mdi:check-circle"
+
+        else:
+            return self._icon
 
     @property
     def extra_state_attributes(self):
@@ -96,8 +120,13 @@ class SpaceXBinarySensor(BinarySensorEntity):
     @property
     def device_info(self):
         """Define the device based on device_identifier."""
-        device_name = "SpaceX Launches" if self._device_identifier == "spacexlaunch" else "SpaceX Starman"
-        device_model = "Launch" if self._device_identifier == "spacexlaunch" else "Starman"
+
+        device_name = "SpaceX Launches"
+        device_model = "Launch"
+
+        if self._device_identifier != "spacexlaunch":
+            device_name = "SpaceX Starman"
+            device_model = "Starman"
 
         return {
             ATTR_IDENTIFIERS: {(DOMAIN, self._device_identifier)},
@@ -110,25 +139,33 @@ class SpaceXBinarySensor(BinarySensorEntity):
     def is_on(self) -> bool:
         """Return the state."""
         launch_data = self.coordinator.data["next_launch"]
-        current_time = time.time()
 
         if self._kind == "spacex_next_launch_confirmed":
-            return not launch_data.get("tbd", True)
+            if launch_data["tbd"] is True:
+                return False
+            else:
+                return True
 
-        time_delta = {
-            "spacex_launch_24_hour_warning": 24 * 60 * 60,
-            "spacex_launch_20_minute_warning": 20 * 60,
-        }.get(self._kind)
+        elif self._kind == "spacex_launch_24_hour_warning":
+            if launch_data["date_unix"] < (
+                time.time() + (24 * 60 * 60)
+            ) and launch_data["date_unix"] > (time.time()):
+                return True
+            else:
+                return False
 
-        if time_delta:
-            return current_time < launch_data["date_unix"] < (current_time + time_delta)
-
-        return False
+        elif self._kind == "spacex_launch_20_minute_warning":
+            if launch_data["date_unix"] < (
+                time.time() + (20 * 60)
+            ) and launch_data["date_unix"] > (time.time()):
+                return True
+            else:
+                return False
 
     async def async_update(self):
         """Update SpaceX Binary Sensor Entity."""
         await self.coordinator.async_request_refresh()
-
+        
     async def async_added_to_hass(self):
         """Subscribe to updates."""
         self.async_on_remove(
