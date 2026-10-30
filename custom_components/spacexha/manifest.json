@@ -10,6 +10,6 @@
   "issue_tracker": "https://github.com/XAV59213/spacexha/issues",
   "requirements": ["spacexpypi==0.0.12"],
   "ssdp": [],
-  "version": "029",
+  "version": "1.0.1",
   "zeroconf": []
 }
