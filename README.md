@@ -6,8 +6,11 @@ Please check out my other Rocket Launch Live integration as an alternative for l
 
 # SpaceX Next Launch and Starman Data Integration
 
-<a target="_blank" href="https://www.buymeacoffee.com/djtimca"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me a coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;"></a> [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
-[![Downloads](https://img.shields.io/github/downloads/XAV59213/spacexha/total.svg?label=Downloads)](https://github.com/XAV59213/spacexha/releases)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz) [![Release](https://img.shields.io/github/v/release/XAV59213/spacexha?label=release)](https://github.com/XAV59213/spacexha/releases/latest) [![Hassfest](https://img.shields.io/github/actions/workflow/status/XAV59213/spacexha/hassfest.yaml?branch=main&label=Hassfest&logo=github)](https://github.com/XAV59213/spacexha/actions/workflows/hassfest.yaml) [![HACS validation](https://img.shields.io/github/actions/workflow/status/XAV59213/spacexha/validate.yaml?branch=main&label=HACS%20validation&logo=github)](https://github.com/XAV59213/spacexha/actions/workflows/validate.yaml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) [![Downloads](https://img.shields.io/github/downloads/XAV59213/spacexha/total.svg?label=Downloads)](https://github.com/XAV59213/spacexha/releases) [![Version](https://img.shields.io/github/v/release/XAV59213/spacexha?label=VERSION&color=blue)](https://github.com/XAV59213/spacexha/releases/latest)
+
+[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=xav59213&emoji=&slug=xav59213&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00)](https://www.buymeacoffee.com/xav59213)
+
+<a target="_blank" href="https://www.buymeacoffee.com/djtimca"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me a coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;"></a>
 
 This integration will provide sensors for SpaceX Next Launch and Starman information from the SpaceX APIs.
 
