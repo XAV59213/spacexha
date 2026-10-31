@@ -15,6 +15,6 @@
     "spacexpypi==0.0.12"
   ],
   "ssdp": [],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "zeroconf": []
 }
